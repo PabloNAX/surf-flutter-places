@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:places/domain/sight.dart';
+import 'package:places/ui/screen/sight_card.dart';
 
 class SightListScreen extends StatefulWidget {
   @override
@@ -75,11 +77,45 @@ class _SightListScreenState extends State<SightListScreen> {
           ),
         ),
       ),
-      body: Center(
-        child: Text(
-          'Inside body',
-          style: TextStyle(
-            color: Colors.white,
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            children: [
+              SightCard(
+                sight: Sight(
+                  name: 'Воронежский областной краеведческий музей',
+                  details: 'краткое описание',
+                  coordinates: Coordinates(lat: 2.44, lon: 2.555),
+                  type: 'музей',
+                  url: 'https://tripadviser.com/house/',
+                ),
+              ),
+              SizedBox(
+                height: 16,
+              ),
+              SightCard(
+                sight: Sight(
+                  name: 'Воронежский областной краеведческий музей',
+                  details: 'краткое описание',
+                  coordinates: Coordinates(lat: 2.44, lon: 2.555),
+                  type: 'музей',
+                  url: 'https://tripadviser.com/house/',
+                ),
+              ),
+              SizedBox(
+                height: 16,
+              ),
+              SightCard(
+                sight: Sight(
+                  name: 'Воронежский областной краеведческий музей',
+                  details: 'краткое описание',
+                  coordinates: Coordinates(lat: 2.44, lon: 2.555),
+                  type: 'музей',
+                  url: 'https://tripadviser.com/house/',
+                ),
+              ),
+            ],
           ),
         ),
       ),
