@@ -10,8 +10,26 @@ class SightDetails extends StatelessWidget {
           Stack(
             children: [
               Container(
-                color: Colors.lightBlueAccent,
                 height: 360,
+                width: double.infinity,
+                child: Image.network(
+                  'https://picsum.photos/400/400',
+                  fit: BoxFit.cover,
+                  loadingBuilder: (BuildContext context, Widget child,
+                      ImageChunkEvent loadingProgress) {
+                    if (loadingProgress == null) {
+                      return child;
+                    }
+                    return Center(
+                      child: CircularProgressIndicator(
+                        value: loadingProgress.expectedTotalBytes != null
+                            ? loadingProgress.cumulativeBytesLoaded /
+                                loadingProgress.expectedTotalBytes
+                            : null,
+                      ),
+                    );
+                  },
+                ),
               ),
               Positioned(
                 top: 36,
