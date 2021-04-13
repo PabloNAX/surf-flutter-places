@@ -32,48 +32,54 @@ class _SightListScreenState extends State<SightListScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        toolbarHeight: 100,
-        title: RichText(
-          maxLines: 2,
-          textAlign: TextAlign.left,
-          text: TextSpan(
-            children: [
-              TextSpan(
-                text: 'С',
-                style: customTextStyle(color: Color(0xFF4CAF50), shadow: false),
-                children: [
-                  TextSpan(
-                    text: 'писок \n',
-                    style: customTextStyle(
-                        color: Color(0xFF3B3E5B), shadow: false),
-                  ),
-                ],
-              ),
-              TextSpan(
-                text: 'и',
-                style: customTextStyle(color: Color(0xFFFCDD3D), shadow: false),
-                children: [
-                  TextSpan(
-                    text: 'нтересных ',
-                    style: customTextStyle(
-                        color: Color(0xFF3B3E5B), shadow: false),
-                  ),
-                  TextSpan(
-                    text: 'м',
-                    style: customTextStyle(
-                        color: Color(0xFF252849), shadow: false),
-                  ),
-                  TextSpan(
-                    text: 'ест',
-                    style: customTextStyle(
-                        color: Color(0xFF3B3E5B), shadow: false),
-                  ),
-                ],
-              ),
-            ],
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(100.0),
+        child: Container(
+          padding: EdgeInsets.only(left: 16, right: 16, top: 32, bottom: 16),
+          // backgroundColor: Colors.transparent,
+          // elevation: 0,
+          // toolbarHeight: 100,
+          child: RichText(
+            maxLines: 2,
+            textAlign: TextAlign.left,
+            text: TextSpan(
+              children: [
+                TextSpan(
+                  text: 'С',
+                  style:
+                      customTextStyle(color: Color(0xFF4CAF50), shadow: false),
+                  children: [
+                    TextSpan(
+                      text: 'писок \n',
+                      style: customTextStyle(
+                          color: Color(0xFF3B3E5B), shadow: false),
+                    ),
+                  ],
+                ),
+                TextSpan(
+                  text: 'и',
+                  style:
+                      customTextStyle(color: Color(0xFFFCDD3D), shadow: false),
+                  children: [
+                    TextSpan(
+                      text: 'нтересных ',
+                      style: customTextStyle(
+                          color: Color(0xFF3B3E5B), shadow: false),
+                    ),
+                    TextSpan(
+                      text: 'м',
+                      style: customTextStyle(
+                          color: Color(0xFF252849), shadow: false),
+                    ),
+                    TextSpan(
+                      text: 'ест',
+                      style: customTextStyle(
+                          color: Color(0xFF3B3E5B), shadow: false),
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),
@@ -84,7 +90,7 @@ class _SightListScreenState extends State<SightListScreen> {
             children: [
               SightCard(
                 sight: Sight(
-                  name: 'Воронежский областной краеведческий музей',
+                  name: 'Воронежский областной краеведческий',
                   details: 'краткое описание',
                   coordinates: Coordinates(lat: 2.44, lon: 2.555),
                   type: 'музей',
@@ -96,7 +102,7 @@ class _SightListScreenState extends State<SightListScreen> {
               ),
               SightCard(
                 sight: Sight(
-                  name: 'Воронежский областной краеведческий музей',
+                  name: 'Воронежский областной краеведческий',
                   details: 'краткое описание',
                   coordinates: Coordinates(lat: 2.44, lon: 2.555),
                   type: 'музей',
@@ -108,7 +114,7 @@ class _SightListScreenState extends State<SightListScreen> {
               ),
               SightCard(
                 sight: Sight(
-                  name: 'Воронежский областной краеведческий музей',
+                  name: 'Воронежский областной краеведческий',
                   details: 'краткое описание',
                   coordinates: Coordinates(lat: 2.44, lon: 2.555),
                   type: 'музей',
