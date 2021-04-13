@@ -94,7 +94,7 @@ class _SightListScreenState extends State<SightListScreen> {
                   details: 'краткое описание',
                   coordinates: Coordinates(lat: 2.44, lon: 2.555),
                   type: 'музей',
-                  url: 'https://tripadviser.com/house/',
+                  url: 'https://picsum.photos/600/210',
                 ),
               ),
               SizedBox(
@@ -106,7 +106,7 @@ class _SightListScreenState extends State<SightListScreen> {
                   details: 'краткое описание',
                   coordinates: Coordinates(lat: 2.44, lon: 2.555),
                   type: 'музей',
-                  url: 'https://tripadviser.com/house/',
+                  url: 'https://picsum.photos/400/200',
                 ),
               ),
               SizedBox(
@@ -118,7 +118,7 @@ class _SightListScreenState extends State<SightListScreen> {
                   details: 'краткое описание',
                   coordinates: Coordinates(lat: 2.44, lon: 2.555),
                   type: 'музей',
-                  url: 'https://tripadviser.com/house/',
+                  url: 'https://picsum.photos/400/230',
                 ),
               ),
             ],
