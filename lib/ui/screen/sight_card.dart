@@ -16,6 +16,34 @@ class SightCard extends StatelessWidget {
           children: [
             Stack(
               children: [
+                ClipRRect(
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(12.0),
+                    topRight: Radius.circular(12.0),
+                  ),
+                  child: Container(
+                    height: 96,
+                    width: double.infinity,
+                    child: Image.network(
+                      sight.url,
+                      fit: BoxFit.cover,
+                      loadingBuilder: (BuildContext context, Widget child,
+                          ImageChunkEvent loadingProgress) {
+                        if (loadingProgress == null) {
+                          return child;
+                        }
+                        return Center(
+                          child: CircularProgressIndicator(
+                            value: loadingProgress.expectedTotalBytes != null
+                                ? loadingProgress.cumulativeBytesLoaded /
+                                    loadingProgress.expectedTotalBytes
+                                : null,
+                          ),
+                        );
+                      },
+                    ),
+                  ),
+                ),
                 Container(
                   height: 96,
                   decoration: BoxDecoration(
@@ -27,7 +55,7 @@ class SightCard extends StatelessWidget {
                       begin: Alignment.topCenter,
                       end: Alignment.bottomCenter,
                       colors: [
-                        Color(0xFF282B4C).withOpacity(0.86),
+                        Color(0xFF282B4C).withOpacity(0.5),
                         Color(0xFF3B3E5B).withOpacity(0.08),
                       ],
                     ),
