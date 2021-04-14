@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:places/ui/screen/sight_detailes.dart';
+import 'package:places/ui/screen/sight_list_screen.dart';
+import 'package:places/ui/screen/visiting_screen.dart';
 
 void main() {
   runApp(App());
@@ -11,7 +12,7 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'my title',
-      home: SightDetails(),
+      home: MyHomePage(),
     );
   }
 }
@@ -35,40 +36,49 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+  int _selectedIndex = 0;
+  static List<Widget> _widgetOptions = <Widget>[
+    SightListScreen(),
+    VisitingScreen(),
+  ];
 
-  void _incrementCounter() {
+  void _onItemTapped(int index) {
     setState(() {
-      _counter++;
+      _selectedIndex = index;
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-            MyFirstWidget(),
-            MyFirstWidgetStatefull(),
-          ],
-        ),
+        child: _widgetOptions.elementAt(_selectedIndex),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
+      bottomNavigationBar: Container(
+        decoration: BoxDecoration(
+            color: Colors.white,
+            border: Border(
+                top: BorderSide(
+                    color: Color(0xff7C7E92).withOpacity(0.56), width: 0.8))),
+        child: BottomNavigationBar(
+          showSelectedLabels: false,
+          showUnselectedLabels: false,
+          elevation: 0,
+          backgroundColor: Colors.white,
+          items: const <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: Icon(Icons.list_alt_rounded),
+              label: 'list',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.favorite),
+              label: 'fav',
+            ),
+          ],
+          currentIndex: _selectedIndex,
+          selectedItemColor: Color(0xff252849),
+          onTap: _onItemTapped,
+        ),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
