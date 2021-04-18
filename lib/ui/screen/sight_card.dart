@@ -3,8 +3,10 @@ import 'package:places/domain/sight.dart';
 
 class SightCard extends StatelessWidget {
   final Sight sight;
+  final bool isVisited;
 
-  const SightCard({Key key, this.sight}) : super(key: key);
+  const SightCard({Key key, this.sight, this.isVisited = false})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -119,7 +121,7 @@ class SightCard extends StatelessWidget {
                   Text(
                     sight.details,
                     style: TextStyle(
-                      color: Color(0xFF7C7E92),
+                      color: isVisited ? Color(0xFF7C7E92) : Color(0xFF4CAF50),
                       fontSize: 14,
                       height: 1.28,
                       fontWeight: FontWeight.w400,
