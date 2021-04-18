@@ -13,19 +13,13 @@ class _VisitingScreenState extends State<VisitingScreen> {
     return DefaultTabController(
       length: 2,
       child: Scaffold(
-        backgroundColor: Colors.white,
         appBar: AppBar(
           elevation: 0,
-          backgroundColor: Colors.white,
+          backgroundColor: Theme.of(context).scaffoldBackgroundColor,
           title: Center(
-              child: Text(
-            'Избранное',
-            style: TextStyle(
-              fontWeight: FontWeight.w500,
-              fontSize: 24.0,
-              color: Color(0xFF252849),
-            ),
-          )),
+            child:
+                Text('Избранное', style: Theme.of(context).textTheme.headline6),
+          ),
           bottom: PreferredSize(
             preferredSize: Size.fromHeight(56.0),
             child: Padding(
@@ -34,31 +28,18 @@ class _VisitingScreenState extends State<VisitingScreen> {
                 margin: EdgeInsets.only(top: 10),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(40),
-                  color: Color(0xfff5f5f5),
+                  color: Theme.of(context).backgroundColor,
                 ),
                 child: TabBar(
-                  unselectedLabelColor: Color(0xFF7C7E92),
-                  indicator: BoxDecoration(
-                    borderRadius: BorderRadius.circular(40),
-                    color: Color(0xff3B3E5B),
-                  ),
                   tabs: [
                     Tab(
                       child: Text(
                         'Хочу посетить',
-                        style: TextStyle(
-                          fontWeight: FontWeight.w700,
-                          fontSize: 14.0,
-                        ),
                       ),
                     ),
                     Tab(
                       child: Text(
                         'Посетил',
-                        style: TextStyle(
-                          fontWeight: FontWeight.w700,
-                          fontSize: 14.0,
-                        ),
                       ),
                     ),
                   ],

@@ -39,7 +39,7 @@ class SightDetails extends StatelessWidget {
                   height: 32,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
-                    color: Colors.white,
+                    color: Theme.of(context).scaffoldBackgroundColor,
                   ),
                 ),
               )
@@ -52,38 +52,23 @@ class SightDetails extends StatelessWidget {
               children: [
                 Text(
                   'Пряности и радости',
-                  style: TextStyle(
-                    color: Color(0xFF3B3E5B),
-                    fontSize: 24,
-                    height: 1.25,
-                    fontWeight: FontWeight.w700,
-                  ),
+                  style: Theme.of(context).textTheme.headline6.copyWith(
+                        fontWeight: FontWeight.w700,
+                      ),
                 ),
                 SizedBox(
                   height: 2,
                 ),
                 Row(
                   children: [
-                    Text(
-                      'ресторан',
-                      style: TextStyle(
-                        color: Color(0xFF3B3E5B),
-                        fontSize: 14,
-                        height: 1.25,
-                        fontWeight: FontWeight.w700,
-                      ),
-                    ),
+                    Text('ресторан',
+                        style: Theme.of(context).primaryTextTheme.subtitle2),
                     SizedBox(
                       width: 16,
                     ),
                     Text(
                       'закрыто до 09:00',
-                      style: TextStyle(
-                        color: Color(0xFF7C7E92),
-                        fontSize: 14,
-                        height: 1.25,
-                        fontWeight: FontWeight.w400,
-                      ),
+                      style: Theme.of(context).textTheme.bodyText1,
                     ),
                   ],
                 ),
@@ -92,18 +77,13 @@ class SightDetails extends StatelessWidget {
                 ),
                 Text(
                   'Пряный вкус радостной жизни вместе с шеф-поваром Изо Дзандзава, благодаря которой у гостей ресторана есть возможность выбирать из двух направлений: европейского и восточного',
-                  style: TextStyle(
-                    color: Color(0xFF3B3E5B),
-                    fontSize: 14,
-                    height: 1.25,
-                    fontWeight: FontWeight.w400,
-                  ),
+                  style: Theme.of(context).primaryTextTheme.bodyText1,
                 ),
                 SizedBox(
                   height: 24,
                 ),
                 Container(
-                  color: Colors.green,
+                  color: Theme.of(context).accentColor,
                   height: 48,
                   width: double.infinity,
                 ),

@@ -57,8 +57,8 @@ class SightCard extends StatelessWidget {
                       begin: Alignment.topCenter,
                       end: Alignment.bottomCenter,
                       colors: [
-                        Color(0xFF282B4C).withOpacity(0.5),
-                        Color(0xFF3B3E5B).withOpacity(0.08),
+                        Theme.of(context).primaryColor.withOpacity(0.5),
+                        Theme.of(context).primaryColorLight.withOpacity(0.08),
                       ],
                     ),
                   ),
@@ -67,11 +67,7 @@ class SightCard extends StatelessWidget {
                   padding: const EdgeInsets.all(16.0),
                   child: Text(
                     sight.type,
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 14,
-                        height: 1.25,
-                        fontWeight: FontWeight.bold),
+                    style: Theme.of(context).textTheme.subtitle2,
                   ),
                 ),
                 Positioned(
@@ -87,7 +83,7 @@ class SightCard extends StatelessWidget {
             ),
             Container(
               decoration: BoxDecoration(
-                color: Color(0xFFF5F5F5),
+                color: Theme.of(context).backgroundColor,
                 borderRadius: BorderRadius.only(
                   bottomLeft: const Radius.circular(12.0),
                   bottomRight: const Radius.circular(12.0),
@@ -104,12 +100,7 @@ class SightCard extends StatelessWidget {
                   ConstrainedBox(
                     child: Text(
                       sight.name,
-                      style: TextStyle(
-                        color: Color(0xFF3B3E5B),
-                        fontSize: 16,
-                        height: 1.25,
-                        fontWeight: FontWeight.w500,
-                      ),
+                      style: Theme.of(context).textTheme.subtitle1,
                     ),
                     constraints: BoxConstraints(
                       maxWidth: 150,
@@ -120,12 +111,9 @@ class SightCard extends StatelessWidget {
                   ),
                   Text(
                     sight.details,
-                    style: TextStyle(
-                      color: isVisited ? Color(0xFF7C7E92) : Color(0xFF4CAF50),
-                      fontSize: 14,
-                      height: 1.28,
-                      fontWeight: FontWeight.w400,
-                    ),
+                    style: isVisited
+                        ? Theme.of(context).textTheme.bodyText1
+                        : Theme.of(context).accentTextTheme.bodyText1,
                   ),
                   SizedBox(
                     height: 16,
