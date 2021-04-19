@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:places/ui/screen/res/themes.dart';
+import 'package:places/ui/screen/sight_detailes.dart';
 import 'package:places/ui/screen/sight_list_screen.dart';
 import 'package:places/ui/screen/visiting_screen.dart';
 
@@ -12,7 +14,8 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'my title',
-      home: MyHomePage(),
+      theme: darkTheme,
+      home: SightDetails(),
     );
   }
 }
@@ -56,15 +59,15 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       bottomNavigationBar: Container(
         decoration: BoxDecoration(
-            color: Colors.white,
-            border: Border(
-                top: BorderSide(
-                    color: Color(0xff7C7E92).withOpacity(0.56), width: 0.8))),
+          border: Border(
+            top: BorderSide(
+                color: Color(0xff7C7E92).withOpacity(0.56), width: 0.8),
+          ),
+        ),
         child: BottomNavigationBar(
           showSelectedLabels: false,
           showUnselectedLabels: false,
           elevation: 0,
-          backgroundColor: Colors.white,
           items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(
               icon: Icon(Icons.list_alt_rounded),
@@ -76,7 +79,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           ],
           currentIndex: _selectedIndex,
-          selectedItemColor: Color(0xff252849),
+          // selectedItemColor: Color(0xff252849),
           onTap: _onItemTapped,
         ),
       ), // This trailing comma makes auto-formatting nicer for build methods.
