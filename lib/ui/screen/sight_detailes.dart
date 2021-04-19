@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class SightDetails extends StatelessWidget {
   @override
@@ -11,6 +12,7 @@ class SightDetails extends StatelessWidget {
             children: [
               Container(
                 height: 360,
+                color: Colors.black45,
                 width: double.infinity,
                 child: Image.network(
                   'https://picsum.photos/400/400',
@@ -34,12 +36,21 @@ class SightDetails extends StatelessWidget {
               Positioned(
                 top: 36,
                 left: 16,
-                child: Container(
-                  width: 32,
-                  height: 32,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: Theme.of(context).scaffoldBackgroundColor,
+                child: InkWell(
+                  onTap: () {
+                    print('tapped arrow back');
+                  },
+                  child: Container(
+                    width: 32,
+                    height: 32,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: Theme.of(context).scaffoldBackgroundColor,
+                    ),
+                    child: SvgPicture.asset(
+                      'res/images/svg/Arrow.svg',
+                      matchTextDirection: true,
+                    ),
                   ),
                 ),
               )
@@ -82,10 +93,22 @@ class SightDetails extends StatelessWidget {
                 SizedBox(
                   height: 24,
                 ),
-                Container(
-                  color: Theme.of(context).accentColor,
-                  height: 48,
-                  width: double.infinity,
+                ElevatedButton(
+                  onPressed: () {
+                    print('tapped route button');
+                  },
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      SvgPicture.asset(
+                        'res/images/svg/GO.svg',
+                        // color: Colors.blueGrey[(i + 1) * 100],
+                        matchTextDirection: true,
+                      ),
+                      SizedBox(width: 8.0),
+                      Text('построить маршрут'.toUpperCase()),
+                    ],
+                  ),
                 ),
                 SizedBox(
                   height: 24,
@@ -98,19 +121,54 @@ class SightDetails extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Flexible(
-                      child: Container(
-                        // width: 300,
-                        color: Colors.grey,
-                        height: 40,
+                      child: TextButton(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            SvgPicture.asset(
+                              'res/images/svg/Calendar.svg',
+                              // color: Colors.blueGrey[(i + 1) * 100],
+                              matchTextDirection: true,
+                            ),
+                            SizedBox(
+                              width: 8.0,
+                            ),
+                            Text(
+                              'Запланировать',
+                            )
+                          ],
+                        ),
+                        onPressed: () {
+                          print('pressed');
+                        },
                       ),
                     ),
                     Flexible(
-                      child: Container(
-                        color: Colors.black45,
-                        height: 40,
-                        // width: double.infinity,
+                      child: TextButton(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            SvgPicture.asset(
+                              'res/images/svg/Heart.svg',
+                              color: Theme.of(context).primaryColor,
+                              // color: Colors.blueGrey[(i + 1) * 100],
+                              matchTextDirection: true,
+                            ),
+                            SizedBox(
+                              width: 8.0,
+                            ),
+                            Text(
+                              'В Избранное',
+                              style: TextStyle(
+                                  color: Theme.of(context).primaryColor),
+                            )
+                          ],
+                        ),
+                        onPressed: () {
+                          print('pressed');
+                        },
                       ),
-                    )
+                    ),
                   ],
                 )
               ],

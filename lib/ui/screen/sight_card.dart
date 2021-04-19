@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:places/domain/sight.dart';
 
 class SightCard extends StatelessWidget {
   final Sight sight;
   final bool isVisited;
+  final bool isCalendarIcon;
 
-  const SightCard({Key key, this.sight, this.isVisited = false})
+  const SightCard(
+      {Key key,
+      this.sight,
+      this.isVisited = false,
+      this.isCalendarIcon = false})
       : super(key: key);
 
   @override
@@ -73,12 +79,39 @@ class SightCard extends StatelessWidget {
                 Positioned(
                   right: 16,
                   top: 16,
-                  child: Container(
-                    height: 24,
-                    width: 24,
-                    color: Colors.red,
+                  child: InkWell(
+                    onTap: () {
+                      print('heart tapped');
+                    },
+                    child: Container(
+                      height: 24,
+                      width: 24,
+                      child: SvgPicture.asset(
+                        'res/images/svg/Heart.svg',
+                        matchTextDirection: true,
+                      ),
+                    ),
                   ),
-                )
+                ),
+                if (isCalendarIcon)
+                  Positioned(
+                    right: 56,
+                    top: 16,
+                    child: InkWell(
+                      onTap: () {
+                        print('calendar tapped');
+                      },
+                      child: Container(
+                        height: 24,
+                        width: 24,
+                        child: SvgPicture.asset(
+                          'res/images/svg/Calendar-white.svg',
+                          color: Colors.white,
+                          matchTextDirection: true,
+                        ),
+                      ),
+                    ),
+                  )
               ],
             ),
             Container(
