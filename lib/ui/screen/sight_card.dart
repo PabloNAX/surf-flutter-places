@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:places/domain/sight.dart';
 
 class SightCard extends StatelessWidget {
@@ -73,10 +74,21 @@ class SightCard extends StatelessWidget {
                 Positioned(
                   right: 16,
                   top: 16,
-                  child: Container(
-                    height: 24,
-                    width: 24,
-                    color: Colors.red,
+                  child: InkWell(
+                    onTap: () {
+                      print('heart tapped');
+                    },
+                    child: Container(
+                      height: 24,
+                      width: 24,
+                      // color: Colors.red,
+                      child: SvgPicture.asset(
+                        'res/images/svg/Heart.svg',
+                        // color: Colors.blueGrey[(i + 1) * 100],
+                        matchTextDirection: true,
+                      ),
+                      // child: Image.asset('res/images/svg/Heart.svg'),
+                    ),
                   ),
                 )
               ],
