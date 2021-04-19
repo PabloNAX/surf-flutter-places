@@ -49,7 +49,6 @@ class SightDetails extends StatelessWidget {
                     ),
                     child: SvgPicture.asset(
                       'res/images/svg/Arrow.svg',
-                      // color: Colors.blueGrey[(i + 1) * 100],
                       matchTextDirection: true,
                     ),
                   ),
