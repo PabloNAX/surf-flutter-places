@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:places/ui/screen/filter_screen.dart';
 import 'package:places/ui/screen/res/themes.dart';
-import 'package:places/ui/screen/sight_detailes.dart';
 import 'package:places/ui/screen/sight_list_screen.dart';
 import 'package:places/ui/screen/visiting_screen.dart';
 
@@ -14,8 +15,8 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'my title',
-      theme: darkTheme,
-      home: SightDetails(),
+      theme: lightTheme,
+      home: FiltersScreen(),
     );
   }
 }
@@ -43,6 +44,8 @@ class _MyHomePageState extends State<MyHomePage> {
   static List<Widget> _widgetOptions = <Widget>[
     SightListScreen(),
     VisitingScreen(),
+    // VisitingScreen(),
+    // VisitingScreen(),
   ];
 
   void _onItemTapped(int index) {
@@ -68,15 +71,31 @@ class _MyHomePageState extends State<MyHomePage> {
           showSelectedLabels: false,
           showUnselectedLabels: false,
           elevation: 0,
-          items: const <BottomNavigationBarItem>[
+          items: <BottomNavigationBarItem>[
             BottomNavigationBarItem(
-              icon: Icon(Icons.list_alt_rounded),
-              label: 'list',
+              icon: SvgPicture.asset(
+                'res/images/svg/List.svg',
+              ),
+              label: 'List',
             ),
+            // BottomNavigationBarItem(
+            //   icon: SvgPicture.asset(
+            //     'res/images/svg/Map.svg',
+            //   ),
+            //   label: 'Map',
+            // ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.favorite),
-              label: 'fav',
+              icon: SvgPicture.asset(
+                'res/images/svg/Heart Full.svg',
+              ),
+              label: 'Heart',
             ),
+            // BottomNavigationBarItem(
+            //   icon: SvgPicture.asset(
+            //     'res/images/svg/Settings.svg',
+            //   ),
+            //   label: 'Settings',
+            // ),
           ],
           currentIndex: _selectedIndex,
           // selectedItemColor: Color(0xff252849),

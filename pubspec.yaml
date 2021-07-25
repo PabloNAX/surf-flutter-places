@@ -14,6 +14,7 @@ dependencies:
   flutter_svg: 0.18.1
   cupertino_icons: ^1.0.0
 
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -25,6 +26,7 @@ flutter:
   assets:
     - res/fonts/
     - res/images/
+    - res/images/svg/
 
   fonts:
     - family: Roboto
