@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:places/ui/screen/filter_screen.dart';
 import 'package:places/ui/screen/res/themes.dart';
 import 'package:places/ui/screen/sight_list_screen.dart';
 import 'package:places/ui/screen/visiting_screen.dart';
@@ -15,7 +16,7 @@ class App extends StatelessWidget {
     return MaterialApp(
       title: 'my title',
       theme: lightTheme,
-      home: MyHomePage(),
+      home: FiltersScreen(),
     );
   }
 }

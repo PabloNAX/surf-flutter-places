@@ -45,6 +45,12 @@ final lightTheme = ThemeData(
       height: 1.28,
       fontWeight: FontWeight.w400,
     ),
+    bodyText2: TextStyle(
+      color: Color(0xff3B3E5B),
+      fontSize: 12,
+      // height: 1.28,
+      fontWeight: FontWeight.w400,
+    ),
     headline5: TextStyle(
       color: Color(0xFF252849),
       fontWeight: FontWeight.w700,
@@ -89,6 +95,12 @@ final lightTheme = ThemeData(
     ),
   ),
   accentTextTheme: TextTheme(
+    subtitle1: TextStyle(
+      color: Color(0xff4CAF50),
+      fontSize: 16,
+      height: 1.25,
+      fontWeight: FontWeight.w500,
+    ),
     bodyText1: TextStyle(
       color: Color(0xff4CAF50),
       fontSize: 14,
@@ -165,6 +177,12 @@ final darkTheme = ThemeData(
       height: 1.28,
       fontWeight: FontWeight.w400,
     ),
+    bodyText2: TextStyle(
+      color: Color(0xff3B3E5B),
+      fontSize: 12,
+      // height: 1.28,
+      fontWeight: FontWeight.w400,
+    ),
     headline5: TextStyle(
       color: Colors.white,
       fontWeight: FontWeight.w700,
@@ -209,6 +227,12 @@ final darkTheme = ThemeData(
     ),
   ),
   accentTextTheme: TextTheme(
+    subtitle1: TextStyle(
+      color: Color(0xff4CAF50),
+      fontSize: 16,
+      height: 1.25,
+      fontWeight: FontWeight.w500,
+    ),
     bodyText1: TextStyle(
       color: Color(0xff4CAF50),
       fontSize: 14,
