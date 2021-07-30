@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:places/ui/screen/filter_screen.dart';
 import 'package:places/ui/screen/res/themes.dart';
+import 'package:places/ui/screen/settings_screen.dart';
 import 'package:places/ui/screen/sight_list_screen.dart';
 import 'package:places/ui/screen/visiting_screen.dart';
 
@@ -9,14 +9,27 @@ void main() {
   runApp(App());
 }
 
-class App extends StatelessWidget {
+class App extends StatefulWidget {
   // This widget is the root of your application.
   @override
+  _AppState createState() => _AppState();
+}
+
+var model = ThemeSwitcher();
+
+class _AppState extends State<App> with ChangeNotifier {
+  @override
   Widget build(BuildContext context) {
+    model.addListener(() {
+      print('value updated!: ${model.isDarkTheme}');
+      setState(() {
+        print('value updated!: ${model.isDarkTheme}');
+      });
+    });
     return MaterialApp(
       title: 'my title',
-      theme: lightTheme,
-      home: FiltersScreen(),
+      theme: model.isDarkTheme ? darkTheme : lightTheme,
+      home: MyHomePage(),
     );
   }
 }
@@ -44,7 +57,7 @@ class _MyHomePageState extends State<MyHomePage> {
   static List<Widget> _widgetOptions = <Widget>[
     SightListScreen(),
     VisitingScreen(),
-    // VisitingScreen(),
+    SettingsScreen(),
     // VisitingScreen(),
   ];
 
@@ -90,12 +103,12 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               label: 'Heart',
             ),
-            // BottomNavigationBarItem(
-            //   icon: SvgPicture.asset(
-            //     'res/images/svg/Settings.svg',
-            //   ),
-            //   label: 'Settings',
-            // ),
+            BottomNavigationBarItem(
+              icon: SvgPicture.asset(
+                'res/images/svg/Settings.svg',
+              ),
+              label: 'Settings',
+            ),
           ],
           currentIndex: _selectedIndex,
           // selectedItemColor: Color(0xff252849),
