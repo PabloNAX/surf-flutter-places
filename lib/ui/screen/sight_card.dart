@@ -16,10 +16,9 @@ class SightCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: AspectRatio(
-        aspectRatio: 3 / 2,
-        child: Column(
+    return Stack(
+      children: [
+        Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Stack(
@@ -156,7 +155,15 @@ class SightCard extends StatelessWidget {
             ),
           ],
         ),
-      ),
+        Positioned.fill(
+          child: Material(
+            color: Colors.transparent,
+            child: InkWell(
+              onTap: () {},
+            ),
+          ),
+        ),
+      ],
     );
   }
 }
