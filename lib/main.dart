@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:places/ui/screen/res/themes.dart';
-import 'package:places/ui/screen/sight_detailes.dart';
+import 'package:places/ui/screen/settings_screen.dart';
 import 'package:places/ui/screen/sight_list_screen.dart';
 import 'package:places/ui/screen/visiting_screen.dart';
 
@@ -8,14 +9,27 @@ void main() {
   runApp(App());
 }
 
-class App extends StatelessWidget {
+class App extends StatefulWidget {
   // This widget is the root of your application.
   @override
+  _AppState createState() => _AppState();
+}
+
+var model = ThemeSwitcher();
+
+class _AppState extends State<App> with ChangeNotifier {
+  @override
   Widget build(BuildContext context) {
+    model.addListener(() {
+      print('value updated!: ${model.isDarkTheme}');
+      setState(() {
+        print('value updated!: ${model.isDarkTheme}');
+      });
+    });
     return MaterialApp(
       title: 'my title',
-      theme: darkTheme,
-      home: SightDetails(),
+      theme: model.isDarkTheme ? darkTheme : lightTheme,
+      home: MyHomePage(),
     );
   }
 }
@@ -43,6 +57,8 @@ class _MyHomePageState extends State<MyHomePage> {
   static List<Widget> _widgetOptions = <Widget>[
     SightListScreen(),
     VisitingScreen(),
+    SettingsScreen(),
+    // VisitingScreen(),
   ];
 
   void _onItemTapped(int index) {
@@ -68,14 +84,30 @@ class _MyHomePageState extends State<MyHomePage> {
           showSelectedLabels: false,
           showUnselectedLabels: false,
           elevation: 0,
-          items: const <BottomNavigationBarItem>[
+          items: <BottomNavigationBarItem>[
             BottomNavigationBarItem(
-              icon: Icon(Icons.list_alt_rounded),
-              label: 'list',
+              icon: SvgPicture.asset(
+                'res/images/svg/List.svg',
+              ),
+              label: 'List',
+            ),
+            // BottomNavigationBarItem(
+            //   icon: SvgPicture.asset(
+            //     'res/images/svg/Map.svg',
+            //   ),
+            //   label: 'Map',
+            // ),
+            BottomNavigationBarItem(
+              icon: SvgPicture.asset(
+                'res/images/svg/Heart Full.svg',
+              ),
+              label: 'Heart',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.favorite),
-              label: 'fav',
+              icon: SvgPicture.asset(
+                'res/images/svg/Settings.svg',
+              ),
+              label: 'Settings',
             ),
           ],
           currentIndex: _selectedIndex,
