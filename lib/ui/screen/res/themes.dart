@@ -96,6 +96,28 @@ final lightTheme = ThemeData(
       fontWeight: FontWeight.w400,
     ),
   ),
+  elevatedButtonTheme: ElevatedButtonThemeData(
+    style: ElevatedButton.styleFrom(
+      padding: EdgeInsets.symmetric(vertical: 15),
+      primary: Color(0xff4CAF50),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+      elevation: 0,
+      textStyle: TextStyle(
+        fontWeight: FontWeight.w700,
+        fontSize: 14,
+        letterSpacing: 0.03,
+      ),
+    ),
+  ),
+  textButtonTheme: TextButtonThemeData(
+    style: TextButton.styleFrom(
+      primary: Color(0xFF7C7E92),
+      textStyle: TextStyle(
+        fontWeight: FontWeight.w400,
+        fontSize: 14,
+      ),
+    ),
+  ),
 );
 
 final darkTheme = ThemeData(
@@ -192,6 +214,19 @@ final darkTheme = ThemeData(
       fontSize: 14,
       height: 1.28,
       fontWeight: FontWeight.w400,
+    ),
+  ),
+  elevatedButtonTheme: ElevatedButtonThemeData(
+    style: ElevatedButton.styleFrom(
+      padding: EdgeInsets.symmetric(vertical: 15),
+      primary: Color(0xff4CAF50),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+      elevation: 0,
+      textStyle: TextStyle(
+        fontWeight: FontWeight.w700,
+        fontSize: 14,
+        letterSpacing: 0.03,
+      ),
     ),
   ),
 );
